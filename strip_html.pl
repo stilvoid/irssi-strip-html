@@ -21,7 +21,7 @@ sub sig_strip_html {
 
     $message = `echo "$message" | html2text`;
 
-    chomp($message);
+    $message =~ s/[\s\n]+$//;
 
     Irssi::signal_continue($server, $message, $nick, $address, $target)
 }
