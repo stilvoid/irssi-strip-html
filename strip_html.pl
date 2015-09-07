@@ -19,7 +19,7 @@ sub sig_strip_html {
 	return unless $wi->{server}->{chatnet} eq
 		Irssi::settings_get_str('strip_html_chatnet');
 
-    $message = `echo "$message" | html2text`;
+    $message = `echo "$message" | html2text 2>/dev/null`;
 
     $message =~ s/[\s\n]+$//;
 
